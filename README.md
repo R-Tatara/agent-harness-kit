@@ -4,8 +4,8 @@ A project template for AI coding assistants, with shared development rules and t
 
 ## Setup
 
+Run from an empty target directory:
+
 ```bash
-npx degit R-Tatara/agent-harness-kit agent-harness-kit
-cd agent-harness-kit
-mv .gitignore.template .gitignore
+npx degit R-Tatara/agent-harness-kit . && mv .gitignore.template .gitignore
 ```

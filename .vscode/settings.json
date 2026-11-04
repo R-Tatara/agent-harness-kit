@@ -1,0 +1,32 @@
+{
+  // Copilot Chat/Agentがユーザー承認なしで実行してよいターミナルコマンドの設定
+  // キーは文字列（前方一致）または /正規表現/ で指定。値 true=自動承認, false=常に承認必須
+  // 参考: https://code.visualstudio.com/docs/agents/reference/ai-settings#_approvals-and-permissions
+  "chat.tools.terminal.autoApprove": {
+    // --- VS Code既定の許可リストに無い読み取り専用コマンドのみ追加 ---
+    // (ls/pwd/cat/echo/which/stat/date/tree/grep/head/tail/wc/sort/find/rg/sed 等は既定で許可済み)
+    "/^(whoami|awk|uniq|diff)\\b/": true,
+
+    // --- git: 既定で未カバーな参照系のみ追加許可、破壊的操作は承認必須 ---
+    // (git status/diff/show/branch は既定で許可済み)
+    "/^git (remote( |$)|fetch|blame|stash list)\\b/": true,
+    "/^git (push|reset --hard|clean( .*)? -[a-z]*f|rebase|checkout -- )/i": false,
+
+    // --- Python / uv（.github/instructions/common/python.instructions.md準拠）---
+    "/^(python3?|uv) (--version|-V)$/": true,
+    "/^uv (run|sync|lock)\\b/": true,
+    "/^uv run (pytest|ruff|mypy)\\b/": true,
+    "/^(pytest|ruff (check|format))\\b/": true,
+
+    // --- Node.js / npm（.github/instructions/frontend/react.instructions.md準拠）---
+    // (npm ls/list/outdated等の読み取り系は既定で許可済み。test/build/devは実行系のため追加)
+    "/^npm (test|run (lint|build|dev))\\b/": true,
+
+    // --- ROS 2 / colcon ---
+    "/^colcon (build|test)\\b/": true,
+    "/^ros2 (topic|node|pkg|param|service) (list|info|echo|show)\\b/": true,
+
+    // --- デフォルト未収録の危険コマンドのみ追加で承認必須化 ---
+    "sudo": false
+  }
+}

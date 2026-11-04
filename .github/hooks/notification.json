@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "notify-send 'GitHub Copilot' 'タスク完了' && pw-play /usr/share/sounds/freedesktop/stereo/complete.oga",
+        "timeout": 5
+      }
+    ]
+  }
+}

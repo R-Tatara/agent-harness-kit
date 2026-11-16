@@ -1,43 +1,47 @@
-# ===== Environment / Secrets =====
+# Environment / Secrets
 .env
 .env.*
 !.env.example
 
-# ===== OS =====
+# OS
 .DS_Store
 Thumbs.db
 
-# ===== IDE / Editor =====
+# IDE / Editor
 .vscode/
 .idea/
 
-# ===== AI Tools / GitHub Config =====
+# AI Tools / GitHub Config
 .claude/
 .github/
 AGENTS.md
 
-# ===== Logs =====
+# Logs
 *.log
 
-# ===== Python =====
+# Python
 __pycache__/
 *.py[cod]
 
-# ===== Linter / Type Checker Cache =====
+# Linter / Type Checker Cache
 .ruff_cache/
 
-# ===== Virtual Environment =====
+# Virtual Environment
 .venv/
 
-# ===== Build / Packaging =====
-build/
+# Build / Packaging
 dist/
 *.egg-info/
 
-# ===== Test / Coverage =====
+# ROS 2 Workspace
+build/
+install/
+log/
+
+# Test / Coverage
 .pytest_cache/
 .coverage
 htmlcov/
 
-# ===== Model Files =====
+# Model Files
 *.pt

@@ -26,19 +26,21 @@ my-project/
 │   ├── skills/
 │   │   ├── readme-generator/
 │   │   │   └── SKILL.md             # Readme作成Skill
-│   │   ├── git-workflow/
-│   │   │   └── SKILL.md             # Git管理Skill
-│   │   └── log-issue/
-│   │       └── SKILL.md             # 対話内容をログ保存するSkill
+│   │   └── git-workflow/
+│   │       └── SKILL.md             # Git管理Skill
 │   ├── agents/
 │   │   ├── error-debugger.agent.md  # エラー原因調査Agent
-│   │   └── log-curator.agent.md     # ログ情報をもとにハーネスを更新するAgent
+│   │   └── log-curator.agent.md     # トランスクリプトから気づきを抽出しハーネスを更新するAgent
 │   ├── hooks/
-│   │   └── notification.json
+│   │   ├── notification.json        # Stop時に完了通知
+│   │   ├── save-transcript.json     # Stop / SessionEnd時にトランスクリプトを自動蓄積
+│   │   └── save-transcript.sh       # 蓄積スクリプト（追記のみ。要約・判断はしない）
 │   ├── plans/
 │   │   └── plan-YYYYMMDD-HHMMSS.md  # python.instructions.mdの計画ゲートで実行時生成
 │   └── logs/
-│       └── *.log                    # ハーネス更新用ログ
+│       ├── raw/                     # フックが自動蓄積するトランスクリプト（gitignore対象）
+│       │   └── YYYYMMDD.md
+│       └── .curated.json            # 棚卸し状態（抽出済み範囲と判断記録）
 ├── .vscode/
 │   └── settings.json                # auto-approve設定
 ├── .gitignore

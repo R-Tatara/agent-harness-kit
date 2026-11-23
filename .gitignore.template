@@ -18,6 +18,8 @@ AGENTS.md
 
 # Logs
 *.log
+# Harness raw transcripts (auto-accumulated by hook)
+.github/logs/raw/
 
 # Python
 __pycache__/

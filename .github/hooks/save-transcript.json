@@ -1,0 +1,1 @@
+{"hooks":{"SessionEnd":[{"command":"bash .github/hooks/save-transcript.sh","timeout":10,"type":"command"}],"Stop":[{"command":"bash .github/hooks/save-transcript.sh","timeout":10,"type":"command"}]}}
